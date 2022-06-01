@@ -1,12 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap');
 
+:root {
+  --clr-primary: #264653;
+  --clr-accent: #2a9d8f;
+  --clr-yellow: #e9c46a;
+  --clr-orange: #f4a261;
+  --clr-red: #e76f51;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Hind', sans-serif;
+  background-color: var(--clr-primary);
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,17 +25,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4 {
+  font-family: 'Hind';
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+p {
+  font-family: 'Hind';
+  padding: 0;
+  margin: 0;
+}
+
 .section-header {
   font-size: 2.2rem;
   font-family: 'Pacifico', sans-serif;
   text-align: center;
-  margin: 0;
+  margin: 0 0.5em;
   padding: 0;
-  color: #264653;
+  color: white;
 }
 
 .highlighted {
-  color: #2a9d8f;
+  color: var(--clr-yellow);
+  font-weight: bold;
 }
 
 .main-content {
@@ -34,11 +57,43 @@ body {
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
-  text-align: center;
   margin: 1em 0em;
 }
 
-@media (min-width: 40rem) {
+.form-container {
+  background-color: var(--clr-accent);
+  padding: 1em;
+}
+
+.patients-container {
+  padding: 1em;
+  background-color: var(--clr-orange);
+}
+
+.pets-form__input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pets-form__input-label {
+  font-family: 'Hind';
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.pets-form__input-field {
+  padding: 0.5em 1em; 
+  margin: 0.5em;
+  max-width: 30rem;
+  width: 90%;
+  border: none;
+  border-radius: 0.3em;
+  border: 2px solid #FAFAFA;
+}
+
+@media (min-width: 60rem) {
   .section-header {
     margin: auto;
     width: 66%;
@@ -46,6 +101,18 @@ body {
 
   .main-content {
     grid-template-columns: 1fr 1fr;
+    width: 80%;
+    gap: 1em;
+    margin: auto;
+    padding: 1em 0em;
+  }
+
+  .form-container {
+    border-radius: 1em;
+  }
+
+  .patients-container {
+    border-radius: 1em;
   }
 }
 
