@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap');
 
 :root {
-  --clr-primary: #264653;
-  --clr-accent: #2a9d8f;
-  --clr-yellow: #e9c46a;
-  --clr-orange: #f4a261;
+  --clr-primary: #fefae0;
+  --clr-accent: #ccd5ae;
+  --clr-yellow: #e9edc9;
+  --clr-orange: #faedcd;
   --clr-red: #e76f51;
 }
 
@@ -45,11 +45,16 @@ p {
   text-align: center;
   margin: 0 0.5em;
   padding: 0;
-  color: white;
+  color: #d4a373;
+}
+
+.section-description {
+  text-align: center;
+  margin: 0.6em 0;
 }
 
 .highlighted {
-  color: var(--clr-yellow);
+  color: #023047;
   font-weight: bold;
 }
 
