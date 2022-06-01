@@ -75,6 +75,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 1em;
 }
 
 .pets-form__input-label {
@@ -84,13 +85,38 @@ p {
 }
 
 .pets-form__input-field {
+  font-family: 'Hind';
   padding: 0.5em 1em; 
-  margin: 0.5em;
   max-width: 30rem;
   width: 90%;
   border: none;
   border-radius: 0.3em;
   border: 2px solid #FAFAFA;
+}
+
+.pets-form__input-field:focus {
+  outline: 2px solid var(--clr-red);
+}
+
+.btn {
+  font-size: 1rem;
+  border-radius: 0.1em;
+  padding: 0.5em 1em;
+  width: 100%;
+  border: none;
+  font-family: 'Hind';
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 1em 0;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--clr-yellow)
+}
+
+.btn-primary:hover {
+  background-color: #d8b660;  
 }
 
 @media (min-width: 60rem) {
@@ -113,6 +139,10 @@ p {
 
   .patients-container {
     border-radius: 1em;
+  }
+
+  .btn {
+    width: 50%;
   }
 }
 
