@@ -19,11 +19,6 @@ body {
   background-color: var(--clr-primary);
   margin: 0;
   padding: 0;
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
 }
 
 h1, h2, h3, h4 {
@@ -58,7 +53,7 @@ input[type="text"] {
 
 .section-description {
   text-align: center;
-  margin: 0.6em 0;
+  margin: 0.8em 0;
 }
 
 .highlighted {
@@ -164,6 +159,20 @@ input[type="text"] {
   padding: 1em;
   border-radius: 0.1em;
   color: #f1faee;
+  margin: auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8ecae688;
+  padding: 1em;
+  border-radius: 0.1em;
+  color: white;
   margin: auto;
   text-transform: uppercase;
   font-weight: bold;

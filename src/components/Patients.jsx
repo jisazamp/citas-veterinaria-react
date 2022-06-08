@@ -1,5 +1,6 @@
 import Patient from './Patient';
 import PropTypes from 'prop-types';
+import Error from './Error';
 
 const Patients = ({ patients }) => {
   return (
@@ -9,9 +10,11 @@ const Patients = ({ patients }) => {
         Administra tus <span className='highlighted'>pacientes y citas</span>
       </p>
 
-      {patients.map((e, index) => (
-        <Patient key={index} patient={e} />
-      ))}
+      {patients.length > 0 ? (
+        patients.map((e, index) => <Patient key={index} patient={e} />)
+      ) : (
+        <Error message='No hay pacientes registrados' type='info' />
+      )}
     </div>
   );
 };
