@@ -16,8 +16,8 @@ const App = () => {
     setPatients([...patients, patient]);
   };
 
-  const handlePatientDelete = (patientId) => {
-    const newPatients = patients.filter((e) => e.id !== patientId);
+  const handlePatientDelete = (p) => {
+    const newPatients = patients.filter((e) => e.id !== p['id']);
     setPatients(newPatients);
   };
 

@@ -12,12 +12,7 @@ const Patients = ({ patients, onPatientDelete }) => {
 
       {patients.length > 0 ? (
         patients.map((e) => (
-          <Patient
-            key={e.id}
-            patient={e}
-            patientDelete={onPatientDelete}
-            patientEdit={onPatientEdit}
-          />
+          <Patient key={e.id} patient={e} patientDelete={onPatientDelete} />
         ))
       ) : (
         <Error message='No hay pacientes registrados' type='info' />
