@@ -6,7 +6,13 @@ import Patients from './components/Patients';
 const App = () => {
   const [patients, setPatients] = useState([]);
 
+  const generateId = () => {
+    return Math.random().toString(36).substring(2) + Date.now();
+  };
+
   const handlePatientSubmit = (patient) => {
+    const patientId = generateId();
+    patient['id'] = patientId;
     setPatients([...patients, patient]);
   };
 

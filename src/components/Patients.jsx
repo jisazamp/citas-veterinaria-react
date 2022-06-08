@@ -11,7 +11,7 @@ const Patients = ({ patients }) => {
       </p>
 
       {patients.length > 0 ? (
-        patients.map((e, index) => <Patient key={index} patient={e} />)
+        patients.map((e) => <Patient key={e.id} patient={e} />)
       ) : (
         <Error message='No hay pacientes registrados' type='info' />
       )}
