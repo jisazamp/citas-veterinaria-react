@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 
 const Patient = ({ patient }) => {
-  const { petName, ownerName, ownerEmail, medicalRelease } = patient;
+  const { petName, ownerName, ownerEmail, medicalRelease, observations } =
+    patient;
 
   return (
     <article className='patient-card'>
@@ -21,6 +22,11 @@ const Patient = ({ patient }) => {
       <p>
         <span className='highlighted uppercase'>Fecha de alta:</span>{' '}
         {medicalRelease}
+      </p>
+
+      <p>
+        <span className='highlighted uppercase'>Observaciones:</span>{' '}
+        {observations}
       </p>
     </article>
   );
