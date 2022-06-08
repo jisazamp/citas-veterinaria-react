@@ -39,6 +39,10 @@ p {
   margin: 0;
 }
 
+input[type="text"] {
+  text-transform: capitalize;
+}
+
 .uppercase {
   text-transform: uppercase;
 }

@@ -1,26 +1,33 @@
-const Patient = () => {
+import PropTypes from 'prop-types';
+
+const Patient = ({ patient }) => {
+  const { petName, ownerName, ownerEmail, medicalRelease } = patient;
+
   return (
     <article className='patient-card'>
       <p>
-        <span className='highlighted uppercase'>Nombre:</span> Bambino
+        <span className='highlighted uppercase'>Nombre:</span> {petName}
       </p>
 
       <p>
-        <span className='highlighted uppercase'>Propietario:</span> Juan P.
-        Isaza
+        <span className='highlighted uppercase'>Propietario:</span> {ownerName}
       </p>
 
       <p>
         <span className='highlighted uppercase'>Email propietario:</span>{' '}
-        juan@mail.com
+        {ownerEmail}
       </p>
 
       <p>
-        <span className='highlighted uppercase'>Fecha de alta:</span> 10 de
-        diciembre de 2021
+        <span className='highlighted uppercase'>Fecha de alta:</span>{' '}
+        {medicalRelease}
       </p>
     </article>
   );
+};
+
+Patient.propTypes = {
+  patient: PropTypes.object.isRequired,
 };
 
 export default Patient;

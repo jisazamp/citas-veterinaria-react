@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Error from './Error';
 
-const Form = () => {
+import PropTypes from 'prop-types';
+
+const Form = ({ onPatientSubmit }) => {
   const [petName, setPetName] = useState('');
   const [ownerName, setOwnerName] = useState('');
   const [ownerEmail, setOwnerEmail] = useState('');
@@ -25,6 +27,19 @@ const Form = () => {
     }
 
     setError(false);
+    onPatientSubmit({
+      petName: petName.replace(/^\w/, (c) => c.toUpperCase()),
+      ownerName: ownerName.replace(/^\w/, (c) => c.toUpperCase()),
+      ownerEmail: ownerEmail.toLowerCase(),
+      medicalRelease,
+      observations,
+    });
+
+    setPetName('');
+    setOwnerName('');
+    setOwnerEmail('');
+    setMedicalRelease('');
+    setObservations('');
   };
 
   return (
@@ -119,6 +134,10 @@ const Form = () => {
       </form>
     </div>
   );
+};
+
+Form.propTypes = {
+  onPatientSubmit: PropTypes.func.isRequired,
 };
 
 export default Form;
