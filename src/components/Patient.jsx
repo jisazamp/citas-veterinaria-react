@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Patient = ({ patient }) => {
+const Patient = ({ patient, patientDelete, patientEdit }) => {
   const { petName, ownerName, ownerEmail, medicalRelease, observations } =
     patient;
 
@@ -8,6 +8,7 @@ const Patient = ({ patient }) => {
     <article className='patient-card'>
       <div className='patient-card__icons'>
         <svg
+          onClick={() => patientEdit(patient.id)}
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
           className='patient-card__icon'
@@ -23,6 +24,7 @@ const Patient = ({ patient }) => {
         </svg>
 
         <svg
+          onClick={() => patientDelete(patient)}
           xmlns='http://www.w3.org/2000/svg'
           className='patient-card__icon'
           fill='none'

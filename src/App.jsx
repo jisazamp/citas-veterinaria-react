@@ -16,12 +16,17 @@ const App = () => {
     setPatients([...patients, patient]);
   };
 
+  const handlePatientDelete = (patientId) => {
+    const newPatients = patients.filter((e) => e.id !== patientId);
+    setPatients(newPatients);
+  };
+
   return (
     <>
       <Header />
       <section className='main-content'>
         <Form onPatientSubmit={handlePatientSubmit} />
-        <Patients patients={patients} />
+        <Patients patients={patients} onPatientDelete={handlePatientDelete} />
       </section>
     </>
   );
