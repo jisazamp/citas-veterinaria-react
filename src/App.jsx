@@ -5,28 +5,34 @@ import Patients from './components/Patients';
 
 const App = () => {
   const [patients, setPatients] = useState([]);
-
-  const generateId = () => {
-    return Math.random().toString(36).substring(2) + Date.now();
-  };
+  const [patient, setPatient] = useState({});
 
   const handlePatientSubmit = (patient) => {
-    const patientId = generateId();
-    patient['id'] = patientId;
     setPatients([...patients, patient]);
   };
 
   const handlePatientDelete = (p) => {
     const newPatients = patients.filter((e) => e.id !== p['id']);
     setPatients(newPatients);
+    setPatient({});
   };
+
+  const handlePatientEdit = (p) => setPatient(p);
 
   return (
     <>
       <Header />
       <section className='main-content'>
-        <Form onPatientSubmit={handlePatientSubmit} />
-        <Patients patients={patients} onPatientDelete={handlePatientDelete} />
+        <Form
+          patient={patient}
+          onPatientSubmit={handlePatientSubmit}
+          onPatientEdit={handlePatientEdit}
+        />
+        <Patients
+          patients={patients}
+          onPatientDelete={handlePatientDelete}
+          onPatientEdit={handlePatientEdit}
+        />
       </section>
     </>
   );

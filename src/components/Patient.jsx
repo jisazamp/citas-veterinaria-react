@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Patient = ({ patient, patientDelete }) => {
+const Patient = ({ patient, patientDelete, onPatientEdit }) => {
   const { petName, ownerName, ownerEmail, medicalRelease, observations } =
     patient;
 
@@ -8,6 +8,7 @@ const Patient = ({ patient, patientDelete }) => {
     <article className='patient-card'>
       <div className='patient-card__icons'>
         <svg
+          onClick={() => onPatientEdit(patient)}
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
           className='patient-card__icon'
@@ -25,7 +26,7 @@ const Patient = ({ patient, patientDelete }) => {
         <svg
           onClick={() => patientDelete(patient)}
           xmlns='http://www.w3.org/2000/svg'
-          className='patient-card__icon'
+          className='patient-card__icon patient-card__icon-delete'
           fill='none'
           viewBox='0 0 24 24'
           stroke='currentColor'
@@ -66,6 +67,7 @@ const Patient = ({ patient, patientDelete }) => {
 
 Patient.propTypes = {
   patient: PropTypes.object.isRequired,
+  patientDelete: PropTypes.func.isRequired,
 };
 
 export default Patient;

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Error from './Error';
 
 import PropTypes from 'prop-types';
 
-const Form = ({ onPatientSubmit }) => {
+const Form = ({ patient, onPatientSubmit }) => {
   const [petName, setPetName] = useState('');
   const [ownerName, setOwnerName] = useState('');
   const [ownerEmail, setOwnerEmail] = useState('');
@@ -11,6 +11,28 @@ const Form = ({ onPatientSubmit }) => {
   const [observations, setObservations] = useState('');
 
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (Object.keys(patient).length === 0) {
+      setPetName('');
+      setOwnerName('');
+      setOwnerEmail('');
+      setMedicalRelease('');
+      setObservations('');
+
+      return;
+    }
+
+    setPetName(patient.petName);
+    setOwnerEmail(patient.ownerEmail);
+    setOwnerName(patient.ownerName);
+    setMedicalRelease(patient.medicalRelease);
+    setObservations(patient.observations);
+  }, [patient]);
+
+  const generateId = () => {
+    return Math.random().toString(36).substring(2) + Date.now();
+  };
 
   const handlePatientSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +49,9 @@ const Form = ({ onPatientSubmit }) => {
     }
 
     setError(false);
+
     onPatientSubmit({
+      id: generateId(),
       petName: petName.replace(/^\w/, (c) => c.toUpperCase()),
       ownerName: ownerName.replace(/^\w/, (c) => c.toUpperCase()),
       ownerEmail: ownerEmail.toLowerCase(),
@@ -128,7 +152,9 @@ const Form = ({ onPatientSubmit }) => {
 
         <div className='pets-form__input-group'>
           <button className='btn btn-primary' type='submit'>
-            Agregar paciente
+            {Object.keys(patient).length === 0
+              ? 'Agregar paciente'
+              : 'Editar paciente'}
           </button>
         </div>
       </form>
@@ -137,6 +163,7 @@ const Form = ({ onPatientSubmit }) => {
 };
 
 Form.propTypes = {
+  patient: PropTypes.object,
   onPatientSubmit: PropTypes.func.isRequired,
 };
 

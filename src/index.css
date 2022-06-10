@@ -205,16 +205,22 @@ input[type="text"] {
 }
 
 @media (min-width: 40rem) {
+  .main-content {
+    width: 100%;
+  }
+
   .form-container {
     border-radius: 1em;
     width: 90%;
     margin: 1em auto;
+    box-shadow: 1px 1px 10px 2px rgba(0,0,0, 0.2);
   }
 
   .patients-container {
     border-radius: 1em;
     width: 90%;
     margin: 1em auto;
+    box-shadow: 1px 1px 10px 2px rgba(0,0,0, 0.2);
   }
 
   .error {
@@ -258,9 +264,13 @@ input[type="text"] {
   }
 
   .patient-card__icon:hover {
-    transition: all 700ms ease;
+    transition: all 700ms ease-out;
     border-radius: 0.5rem;
-    background-color: var(--clr-accent)
+    background-color: #ccd5ae88;
+  }
+
+  .patient-card__icon-delete:hover {
+    background-color: #e76f5144;
   }
 }
 
