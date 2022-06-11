@@ -48,16 +48,22 @@ const Form = ({ patient, onPatientSubmit }) => {
       }
     }
 
-    setError(false);
-
-    onPatientSubmit({
-      id: generateId(),
+    const patientObject = {
       petName: petName.replace(/^\w/, (c) => c.toUpperCase()),
       ownerName: ownerName.replace(/^\w/, (c) => c.toUpperCase()),
       ownerEmail: ownerEmail.toLowerCase(),
       medicalRelease,
       observations,
-    });
+    };
+
+    if (patient.id) {
+      patientObject['id'] = patient.id;
+    } else {
+      setError(false);
+      patientObject['id'] = generateId();
+    }
+
+    onPatientSubmit(patientObject);
 
     setPetName('');
     setOwnerName('');

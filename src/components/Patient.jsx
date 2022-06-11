@@ -24,7 +24,13 @@ const Patient = ({ patient, patientDelete, onPatientEdit }) => {
         </svg>
 
         <svg
-          onClick={() => patientDelete(patient)}
+          onClick={() => {
+            const response = confirm(
+              '¿Estás seguro que deseas eliminar este paciente?'
+            );
+
+            response && patientDelete(patient);
+          }}
           xmlns='http://www.w3.org/2000/svg'
           className='patient-card__icon patient-card__icon-delete'
           fill='none'
