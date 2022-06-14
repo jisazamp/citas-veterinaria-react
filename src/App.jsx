@@ -18,6 +18,7 @@ const App = () => {
         patientState.id === patient.id ? patient : patientState
       );
       setPatients(updatedPatients);
+      setPatient({});
       return;
     }
 
